@@ -1,16 +1,16 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Clock from './components/Clock'
-import Message from './components/Message'
+import Page_one from './pages/Page_one'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <Clock />
-      <Message />
-
+      <Routes>
+        <Route path='one' element={<Page_one />} />
+      </Routes>
     </div>
   )
 }
