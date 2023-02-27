@@ -1,7 +1,11 @@
 import { ChangeEvent, useState } from "react"
 import { IInfo } from "../pages/Page_one"
 
-const Message = ({ info }: { info: IInfo }) => {
+interface IMessageProps {
+    info: IInfo
+}
+
+const Message = ({ info }: IMessageProps) => {
     const [message, setMessage] = useState<string>('Full-statck Developer')
 
     const changeOption = (e: ChangeEvent<{ value: unknown }>) => setMessage(e.target.value as string)

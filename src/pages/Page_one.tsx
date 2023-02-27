@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Clock from "../components/Clock"
 import Message from "../components/Message"
 
@@ -9,12 +8,11 @@ export type IInfo = {
 }
 
 const Page_one = () => {
-    const info = {
+    const info: IInfo = {
         name: 'Le Nhat Duy',
         progress: 'In Progress',
         school: 'University of Science'
     }
-    // const name: string = "Le Nhat Duy"
 
     return (
         <>
