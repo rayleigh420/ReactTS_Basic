@@ -1,5 +1,7 @@
+import { useContext } from "react"
 import Clock from "../components/Clock"
 import Message from "../components/Message"
+import { ThemeContext } from "../context/ThemeContextProvider"
 
 export type IInfo = {
     name: string,
@@ -14,10 +16,18 @@ const Page_one = () => {
         school: 'University of Science'
     }
 
+    const { toggleTheme } = useContext(ThemeContext)
+
+    const changeTheme = () => {
+        toggleTheme()
+    }
+
+
     return (
         <>
             <Clock />
             <Message info={info} />
+            <button onClick={changeTheme}>Toggle Theme</button>
         </>
     )
 }

@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { ThemeContext } from "../context/ThemeContextProvider"
 
 const Clock = () => {
     const [time, setTime] = useState<Date>(() => new Date(Date.now()))
+    const { theme } = useContext(ThemeContext)
+    // console.log(theme)
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -13,7 +16,7 @@ const Clock = () => {
 
     return (
         <>
-            <p>{time.toUTCString()}</p>
+            <p className="clock" style={{ color: `${theme}` }}>{time.toUTCString()}</p>
         </>
     )
 }
