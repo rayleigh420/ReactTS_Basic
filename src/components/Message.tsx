@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useContext, useState } from "react"
+import { InfoContext } from "../context/InfoContextProvider"
 import { IInfo } from "../pages/Page_one"
 
 interface IMessageProps {
@@ -7,12 +8,14 @@ interface IMessageProps {
 
 const Message = ({ info }: IMessageProps) => {
     const [message, setMessage] = useState<string>('Full-statck Developer')
+    const information = useContext(InfoContext)
 
     const changeOption = (e: ChangeEvent<{ value: unknown }>) => setMessage(e.target.value as string)
 
     return (
         <>
-            <p>Name: {info.name} - Progress: {info.progress} - School: {info.school}</p>
+            <p>Name: {info.name} - Progress: {info.progress} - School: {info.school} (use Props)</p>
+            <p>Name: {information.name} - Progress: {information.progress} - School: {information.school} (useContext)</p>
             <p>{message}</p>
             <select onChange={changeOption}>
                 <option>Full-stack Developer</option>
